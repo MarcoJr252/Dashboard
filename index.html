@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NGO Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="logo">NGO Panel</div>
+      <nav>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#events">Events</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <h1>Dashboard</h1>
+      </header>
+
+      <section class="overview">
+        <div class="card">Total Services: <span id="totalServices">0</span></div>
+        <div class="card">Total Events: <span id="totalEvents">0</span></div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="section" id="services">
+        <h2>Service Locations</h2>
+        <div id="serviceList" class="card-grid"></div>
+
+        <form id="serviceForm" class="form">
+          <h3>Add Service</h3>
+          <select id="serviceType">
+            <option value="blood">Blood</option>
+            <option value="aid">Aid</option>
+            <option value="animal">Animal</option>
+            <option value="orphan-support">Orphan Support</option>
+            <option value="elderly-care">Elderly Care</option>
+            <option value="literacy-programs">Literacy Programs</option>
+          </select>
+          <input type="text" id="serviceName" placeholder="Service Title" required />
+          <input type="text" id="serviceDescription" placeholder="Description" required />
+          <input type="text" id="serviceLocation" placeholder="Location" required />
+          <input type="date" id="serviceDate" required />
+          <input type="time" id="serviceTime" required />
+          <input type="text" id="serviceContact" placeholder="Contact Number" required />
+          <button type="submit" class="btn">Add Service</button>
+        </form>
+      </section>
+
+      <!-- EVENTS -->
+      <section class="section" id="events">
+        <h2>Event Listings</h2>
+        <div id="eventList" class="card-grid"></div>
+
+        <form id="eventForm" class="form">
+          <h3>Add Event</h3>
+          <select id="eventType">
+            <option value="blood">Blood</option>
+            <option value="aid">Aid</option>
+            <option value="house-renovation">House Renovation</option>
+            <option value="animal-welfare">Animal Welfare</option>
+            <option value="orphan-support">Orphan Support</option>
+            <option value="elderly-care">Elderly Care</option>
+            <option value="literacy-programs">Literacy Programs</option>
+            <option value="road">Road</option>
+          </select>
+          <input type="text" id="eventTitle" placeholder="Event Title" required />
+          <input type="date" id="eventDate" required />
+          <input type="text" id="eventDescription" placeholder="Description" required />
+          <input type="text" id="eventLocation" placeholder="Location" required />
+          <input type="time" id="eventTime" required />
+          <input type="text" id="eventContact" placeholder="Contact Number" required />
+          <button type="submit" class="btn">Add Event</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="detailModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h3 id="modalTitle"></h3>
+      <p><strong>Description:</strong> <span id="modalDescription"></span></p>
+      <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+      <p><strong>Date:</strong> <span id="modalDate"></span></p>
+      <p><strong>Time:</strong> <span id="modalTime"></span></p>
+      <p><strong>Contact:</strong> <span id="modalContact"></span></p>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="dashboard.js"></script>
+</body>
+</html>
